@@ -1,21 +1,44 @@
 import React from "react"
-import { Link } from "gatsby"
-
 import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+import C5Blocks from '../blocks/blocks'
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-)
+export default function({ data }) {
+  
+  return (
+    <Layout>
+      <C5Blocks data={data.HomeData.edges[0].node.areaData.Main} />
+     </Layout>
+    )
+}
 
-export default IndexPage
+
+export const query = graphql`
+{
+  HomeData:allConcrete5Pages(filter:{cID:{eq:"1"}}) {
+  totalCount
+  edges {
+    node {
+      areaData{
+        Main {
+          bID
+          _xxxtable
+          titleone
+          titletwo
+          titlethree
+          link
+          link_Title
+          link_Page
+          link_File
+          link_Image
+          link_URL
+          link_Relative_URL
+          btHandle
+          content
+        }
+      }
+    }
+  }
+
+ }
+ }
+`

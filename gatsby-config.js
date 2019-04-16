@@ -1,3 +1,6 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -5,7 +8,44 @@ module.exports = {
     author: `@gatsbyjs`,
   },
   plugins: [
+    {
+      resolve: "gatsby-source-concrete",
+      options: {
+        baseUrl: "gatsby.revolve314.com/314",
+        protocol:"http",
+        auth: {
+          'htaccess_user' : '',
+          'htaccess_pass' : '',
+          'htaccess_sendImmediately' : false,
+          'c5_app_clientSecret' : '#4564GHTHDTRETTEBGHetgts^753777',
+          'c5_app_clientId' : '',
+          'c5_user' : '',
+          'c5_pass' : '',
+        },
+        searchAndReplaceContentUrls: {
+          sourceUrl: "https://source-url.com",
+          replacementUrl: "https://replacement-url.com",
+        }
+
+      },
+    },
+    `gatsby-plugin-netlify-cms`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {
+        // Add any options here
+      },
+    },
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: process.env.ContentSpaceID,
+        // Learn about environment variables: https://gatsby.dev/env-vars
+        accessToken: process.env.ContentAccessToken,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
