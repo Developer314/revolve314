@@ -1,0 +1,1 @@
+{"data":{"allMarkdownRemark":{"edges":[{"node":{"frontmatter":{"title":"Astro JS","api_handle":"astro-js","service_image":"images/astro.jpeg"}}},{"node":{"frontmatter":{"title":"Concrete5 CMS","api_handle":"concrete5-cms","service_image":"images/concrete.jpeg"}}},{"node":{"frontmatter":{"title":"Gatsby SSG","api_handle":"gatsby-ssg","service_image":"images/gatsby.jpeg"}}}]}}}
